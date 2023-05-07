@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import PurposeComponent from './Components/Purposes/PurposeComponent';
 import './App.css';
+import { Route, Routes, Switch } from 'react-router-dom';
+import HeaderComponent from './Components/HeaderComponent';
+import FooterComponent from './Components/FooterComponent';
+import NoPageComponent from './Components/NoPageComponent';
+import MotorcycleComponent from './Components/Motorcycles/MotorcycleComponent';
+import PurposeCreateComponent from './Components/Purposes/PurposeCreateComponent';
+import Layout from './hoc/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <div className='main-container'>
+        <HeaderComponent />
+        <div className="containter">
+
+         <Routes>
+            <Route path="/purposes" exact element={<PurposeComponent />} />
+            <Route path="/purposes/create" element={<PurposeCreateComponent />} />
+            <Route path="/purposes/update/:id" element={<PurposeCreateComponent />} />
+
+            <Route path="/motorcycles" element={<MotorcycleComponent />} />
+            <Route path="*" element={<NoPageComponent />} /> 
+          </Routes> 
+
+        </div>
+        <FooterComponent />
+      </div>
+    </Layout>
   );
 }
 

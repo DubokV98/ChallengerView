@@ -1,0 +1,7 @@
+.PurposeComponent {
+    display: flex;
+    justify-content: center;
+    padding-top: 100;
+    flex-grow: 1;
+
+}
